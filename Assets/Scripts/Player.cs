@@ -26,9 +26,9 @@ public class Player : MonoBehaviour
 
     public void DiscardTile(MahjongTile Tile)
     {
-        this.Discards.Tiles.Add(Tile);
+        /*this.Discards.Tiles.Add(Tile);
         Tile.transform.SetParent(this.Discards.transform, false);
-        this.Hand.Tiles.Remove(Tile);
+        this.Hand.Tiles.Remove(Tile);*/
     }
 
 

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class MahjongTile : MonoBehaviour
 {
-    public SpriteRenderer SpriteRenderer;
+    public Image image;
     public enum TileType 
     { 
         man,
@@ -22,13 +23,18 @@ public class MahjongTile : MonoBehaviour
     public int Value;
     public bool IsRedDora;
     public Sprite sprite;
+
+    public void test()
+    {
+        Debug.Log("clicked"+Type+" "+Value);
+    }
     public void Initialize(TileType Type, int Value, bool IsRedDora, Sprite sprite)
     {
         this.Type = Type;
         this.Value = Value;
         this.IsRedDora = IsRedDora;
         this.sprite = sprite;
-        SpriteRenderer.sprite = sprite;
+        image.sprite = sprite;
     }
     // Start is called before the first frame update
     void Start()
