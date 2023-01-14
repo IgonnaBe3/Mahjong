@@ -7,8 +7,8 @@ public class GameReferee : MonoBehaviour
 {
     public TurnState state;
     public Table table;
-    //private MahjongTile SelectedTile;
     public Player CurrentPlayer;
+    public List<PlayerController> PlayerControllers; 
     private void Start()
     {
         CurrentPlayer = table.Players[0];
@@ -16,7 +16,7 @@ public class GameReferee : MonoBehaviour
         
     }
 
-    public void StartTurn()
+    /*public void StartTurn()
     {
         if(table.Wall.Count > 0)
         {
@@ -30,7 +30,7 @@ public class GameReferee : MonoBehaviour
         CurrentPlayer.Hand.Add(table.Wall[table.Wall.Count - 1]);
         table.Wall[table.Wall.Count - 1].transform.SetParent(CurrentPlayer.Hand.transform, false);
         table.Wall.RemoveAt(table.Wall.Count - 1);
-    }
+    }*/
 
     public void EndTurn()
     {

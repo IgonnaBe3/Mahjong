@@ -31,5 +31,10 @@ public class Player : MonoBehaviour
         this.Hand.Tiles.Remove(Tile);
     }
 
+    public void AddTileToHand(MahjongTile Tile)
+    {
+        this.Hand.Tiles.Add(Tile);
+        Tile.transform.SetParent(this.Hand.transform, false);
 
+    }
 }

@@ -48,11 +48,20 @@ public class GameSetup : MonoBehaviour
         {
             for (int i = 0; i < 13; i++)
             {
-                mahjongPlayer.Hand.Add(tileset[tileset.Count - 1]);
+                MahjongTile Tile = DrawTileFromWall(tileset);
+                mahjongPlayer.AddTileToHand(Tile);
+                /*mahjongPlayer.Hand.Add(tileset[tileset.Count - 1]);
                 tileset[tileset.Count - 1].transform.SetParent(mahjongPlayer.Hand.transform, false);
-                tileset.RemoveAt(tileset.Count - 1);
+                tileset.RemoveAt(tileset.Count - 1);*/
             }
         }
+    }
+
+    public MahjongTile DrawTileFromWall(TileSet tileset)
+    {
+        MahjongTile Tile = tileset[tileset.Count - 1];
+        tileset.RemoveAt(tileset.Count - 1);
+        return Tile;
     }
     // Start is called before the first frame update
     void Start()
