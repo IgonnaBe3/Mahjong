@@ -23,13 +23,21 @@ public class GameReferee : MonoBehaviour
         if (nextIndex >= table.Players.Count)
             nextIndex = 0;
         CurrentPlayer = table.Players[nextIndex];
-        CurrentPlayer.AddTileToHand(DrawTileFromWall(table.Wall));
+        MahjongTile NextTile = DrawTileFromWall(table.Wall);
+        if (NextTile != null)
+            CurrentPlayer.AddTileToHand(NextTile);
+        //else
+            // koniec gry
     }
 
     public MahjongTile DrawTileFromWall(TileSet tileset)
     {
-        MahjongTile Tile = tileset[tileset.Count - 1];
-        tileset.RemoveAt(tileset.Count - 1);
+        MahjongTile Tile = null;
+        if (tileset.Tiles.Count > 0)
+        {
+            Tile = tileset[tileset.Count - 1];
+            tileset.RemoveAt(tileset.Count - 1);
+        }
         return Tile;
     }
 

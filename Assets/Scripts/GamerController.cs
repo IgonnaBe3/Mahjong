@@ -11,18 +11,21 @@ public class GamerController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Player.OnTileAdded.AddListener(AddTileListener);
+        Player.OnTileAdded.AddListener(AddDiscardTileListener);
     }
 
     void DiscardTileForPlayer(MahjongTile tile)
     {
-        Player.DiscardTile(tile);
+        if (GameReferee.CurrentPlayer == Player && Player.Hand.Tiles.Contains(tile))
+        {
+            Player.DiscardTile(tile);
+        }
+            
     }
 
-    void AddTileListener(MahjongTile tile)
+    void AddDiscardTileListener(MahjongTile tile)
     {
         tile.OnClick.AddListener(() => { DiscardTileForPlayer(tile); });
     }
-
 
 }

@@ -7,9 +7,9 @@ public class AIController : MonoBehaviour
     public Player Player;
     public GameReferee GameReferee;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
+        Player.OnTileAdded.AddListener(DiscardRandomTileIfMyTurn);
     }
 
     // Update is called once per frame
@@ -18,9 +18,12 @@ public class AIController : MonoBehaviour
 
     }
 
-    public void PlayerMove()
+    public void DiscardRandomTileIfMyTurn(MahjongTile tile)
     {
-        MahjongTile SelectedTile = Player.Hand[RNG.rng.Next(0, Player.Hand.Count)];
-        Player.DiscardTile(SelectedTile);
+        if (GameReferee.CurrentPlayer == Player)
+        {
+            MahjongTile SelectedTile = Player.Hand[RNG.rng.Next(0, Player.Hand.Count)];
+            Player.DiscardTile(SelectedTile);
+        }
     }
 }
