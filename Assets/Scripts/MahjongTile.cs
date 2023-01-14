@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MahjongTile : MonoBehaviour
 {
     public Image image;
+    public UnityEvent SelectedTileEvent= new UnityEvent();
     public enum TileType 
     { 
         man,
@@ -27,6 +29,7 @@ public class MahjongTile : MonoBehaviour
     public void test()
     {
         Debug.Log("clicked"+Type+" "+Value);
+        SelectedTileEvent.Invoke();
     }
     public void Initialize(TileType Type, int Value, bool IsRedDora, Sprite sprite)
     {

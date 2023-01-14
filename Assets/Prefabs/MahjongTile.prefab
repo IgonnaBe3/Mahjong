@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 724817221998780754}
   - component: {fileID: 349930709317201617}
   - component: {fileID: -4315294352810884112}
-  - component: {fileID: -2571097652357679210}
   m_Layer: 0
   m_Name: MahjongTile
   m_TagString: Untagged
@@ -53,6 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1745184290425733721}
+  SelectedTileEvent:
+    m_PersistentCalls:
+      m_Calls: []
   Type: 0
   Value: 0
   IsRedDora: 0
@@ -65,18 +67,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34250864867983165}
   m_CullTransparentMesh: 1
---- !u!114 &-2571097652357679210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34250864867983165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e9afac7b08a3d84eb8fbb0189585a45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1283235539319340135
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,8 +188,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -2571097652357679210}
-        m_TargetAssemblyTypeName: SelectTile, Assembly-CSharp
+      - m_Target: {fileID: 349930709317201617}
+        m_TargetAssemblyTypeName: MahjongTile, Assembly-CSharp
         m_MethodName: test
         m_Mode: 1
         m_Arguments:
