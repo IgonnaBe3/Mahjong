@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1745184290425733721}
-  SelectedTileEvent:
+  OnClick:
     m_PersistentCalls:
       m_Calls: []
   Type: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 349930709317201617}
         m_TargetAssemblyTypeName: MahjongTile, Assembly-CSharp
-        m_MethodName: test
+        m_MethodName: InvokeOnClickEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

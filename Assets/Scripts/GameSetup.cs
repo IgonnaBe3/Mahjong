@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameSetup : MonoBehaviour
 {
+    public GameReferee GameReferee;
     public void CreateValidWallTileSet(TileSet Tiles, MahjongTile Prefab, TileData tileData)
     {
         for (int i = 0; i < 3; i++)
@@ -48,21 +49,13 @@ public class GameSetup : MonoBehaviour
         {
             for (int i = 0; i < 13; i++)
             {
-                MahjongTile Tile = DrawTileFromWall(tileset);
+                MahjongTile Tile = GameReferee.DrawTileFromWall(tileset);
                 mahjongPlayer.AddTileToHand(Tile);
-                /*mahjongPlayer.Hand.Add(tileset[tileset.Count - 1]);
-                tileset[tileset.Count - 1].transform.SetParent(mahjongPlayer.Hand.transform, false);
-                tileset.RemoveAt(tileset.Count - 1);*/
             }
         }
     }
 
-    public MahjongTile DrawTileFromWall(TileSet tileset)
-    {
-        MahjongTile Tile = tileset[tileset.Count - 1];
-        tileset.RemoveAt(tileset.Count - 1);
-        return Tile;
-    }
+
     // Start is called before the first frame update
     void Start()
     {

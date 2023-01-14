@@ -2,62 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TurnState { START, WAIT_FOR_MOVE, END }
 public class GameReferee : MonoBehaviour
 {
-    public TurnState state;
     public Table table;
-    public Player CurrentPlayer;
-    public List<PlayerController> PlayerControllers; 
-    private void Start()
+    public Player CurrentPlayer; 
+    public void StartGame()
     {
         CurrentPlayer = table.Players[0];
-        state = TurnState.START;
-        
-    }
-
-    /*public void StartTurn()
-    {
-        if(table.Wall.Count > 0)
+        for(int i = 0; i < 4; i++)
         {
-            DrawTile();
+            table.Players[i].OnDiscard.AddListener(SwitchToNextPlayer);
         }
-        state = TurnState.WAIT_FOR_MOVE;
+        CurrentPlayer.AddTileToHand(DrawTileFromWall(table.Wall));
     }
 
-    public void DrawTile()
-    {
-        CurrentPlayer.Hand.Add(table.Wall[table.Wall.Count - 1]);
-        table.Wall[table.Wall.Count - 1].transform.SetParent(CurrentPlayer.Hand.transform, false);
-        table.Wall.RemoveAt(table.Wall.Count - 1);
-    }*/
-
-    public void EndTurn()
-    {
-        CurrentPlayer = NextPlayer();
-        //chi(); and pon(); and ron(); and kan(); check that changes NextPlayer
-        state = TurnState.START;
-    }
-
-    public Player NextPlayer()
+    void SwitchToNextPlayer(MahjongTile tile)
     {
         int nextIndex = table.Players.IndexOf(CurrentPlayer) + 1;
 
         if (nextIndex >= table.Players.Count)
             nextIndex = 0;
-
-        return table.Players[nextIndex];
+        CurrentPlayer = table.Players[nextIndex];
+        CurrentPlayer.AddTileToHand(DrawTileFromWall(table.Wall));
     }
 
-    public void CheckTurn()
+    public MahjongTile DrawTileFromWall(TileSet tileset)
     {
-        if (state == TurnState.START)
-        {
-            StartTurn();
-        }
-        else if (state == TurnState.END)
-        {
-            EndTurn();
-        }
+        MahjongTile Tile = tileset[tileset.Count - 1];
+        tileset.RemoveAt(tileset.Count - 1);
+        return Tile;
     }
+
+ 
 }

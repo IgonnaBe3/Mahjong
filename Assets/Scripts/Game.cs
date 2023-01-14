@@ -18,11 +18,11 @@ public class Game : MonoBehaviour
         gameSetup.CreateValidWallTileSet(table.Wall,prefab,tileData);
         gameSetup.DealToPlayersDrawingFrom(table.Wall, table.Players);
         table.Players[0].IsMainPlayer = true;
+        gameReferee.StartGame();
     }
     // Update is called once per frame
     void Update()
     {
         gameRenderer.ChangeSprite(table, tileData);
-        gameReferee.CheckTurn();
     }
 }
