@@ -6,7 +6,9 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     public Table Table;
-    public TileSet Hand;
+    [field: SerializeField]
+    public TileSet Hand { get; set; }
+    public List<TileSet> OpenHandMelds { get; set; }
     public TileSet Discards;
     public bool IsMainPlayer=false;
     public MahjongTileEvent OnDiscard = new MahjongTileEvent();
