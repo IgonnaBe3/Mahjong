@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class CallChecker : MonoBehaviour
+public class CallChecker
 {
 
     public bool CanChi(TileSet tileset, MahjongTile SearchedTile)
     {
         bool TwoLower = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value - 2 && tile.Type == SearchedTile.Type).Distinct().Count() > 0;
-        bool OneLower = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value - 1 && tile.Type == SearchedTile.Type).Distinct().Count() > 0; ;
-        bool OneHigher = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value + 1 && tile.Type == SearchedTile.Type).Distinct().Count() > 0; ;
-        bool TwoHigher = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value + 2 && tile.Type == SearchedTile.Type).Distinct().Count() > 0; ;
+        bool OneLower = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value - 1 && tile.Type == SearchedTile.Type).Distinct().Count() > 0; 
+        bool OneHigher = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value + 1 && tile.Type == SearchedTile.Type).Distinct().Count() > 0; 
+        bool TwoHigher = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value + 2 && tile.Type == SearchedTile.Type).Distinct().Count() > 0; 
         //tileset.Tiles.Where(tile => tile.IsRedDora);
         if(OneHigher && TwoHigher)
         {
