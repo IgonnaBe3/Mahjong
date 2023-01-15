@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [field: SerializeField]
     public TileSet Hand { get; set; }
     public List<TileSet> OpenHandMelds { get; set; }
+    [field: SerializeField]
+    public TileSet OpenHand { get; set; }
     public TileSet Discards;
     public bool IsMainPlayer=false;
     public MahjongTileEvent OnDiscard = new MahjongTileEvent();
