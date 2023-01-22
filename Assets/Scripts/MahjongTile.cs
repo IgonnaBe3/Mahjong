@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
-public class MahjongTile : MonoBehaviour
+public class MahjongTile : MonoBehaviour, IEquatable<MahjongTile>
 {
     public Image image;
     public UnityEvent OnClick = new UnityEvent();
@@ -38,6 +39,7 @@ public class MahjongTile : MonoBehaviour
         this.sprite = sprite;
         image.sprite = sprite;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,4 +51,16 @@ public class MahjongTile : MonoBehaviour
     {
         
     }
+
+    public bool Equals(MahjongTile other)
+    {
+        if(this.Type==other.Type && this.Value==other.Value && this.IsRedDora==other.IsRedDora )
+            return true;
+        return false;
+    }
+    public override int GetHashCode()
+    {
+        return Type.GetHashCode()+ Value.GetHashCode() + IsRedDora.GetHashCode();
+    }
+
 }

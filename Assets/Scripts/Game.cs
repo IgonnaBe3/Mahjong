@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 
 public class Game : MonoBehaviour
 {
@@ -19,6 +19,12 @@ public class Game : MonoBehaviour
         gameSetup.DealToPlayersDrawingFrom(table.Wall, table.Players);
         table.Players[0].IsMainPlayer = true;
         gameReferee.StartGame();
+
+        TileSet tileset = table.Players[0].Hand.Tiles.Select(tile => tile).Distinct().ToList();
+        for (int i = 0; i < tileset.Count; i++)
+        {
+            Debug.Log($"tile {tileset[i].Value} of {tileset[i].Type} of player {this}");
+        }
     }
     // Update is called once per frame
     void Update()

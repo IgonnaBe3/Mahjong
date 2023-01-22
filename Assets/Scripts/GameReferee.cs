@@ -79,6 +79,11 @@ public class GameReferee : MonoBehaviour
     private void HandleCalls(object sender, ElapsedEventArgs e)
     {
         Debug.Log("DUPAA");
+        if(e != null)
+        {
+
+        }
+
     }
 
     public MahjongTile DrawTileFromWall(TileSet tileset)
