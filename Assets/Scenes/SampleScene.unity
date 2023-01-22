@@ -1196,6 +1196,24 @@ MonoBehaviour:
   OnTileAdded:
     m_PersistentCalls:
       m_Calls: []
+  OnChi:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPon:
+    m_PersistentCalls:
+      m_Calls: []
+  OnKan:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallChi:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallPon:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallKan:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &820890187
 Transform:
   m_ObjectHideFlags: 0
@@ -1220,6 +1238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 832224091}
+  - component: {fileID: 832224095}
   - component: {fileID: 832224094}
   - component: {fileID: 832224093}
   - component: {fileID: 832224092}
@@ -1294,7 +1313,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 832224093}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &832224093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1333,6 +1364,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832224090}
   m_CullTransparentMesh: 1
+--- !u!114 &832224095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832224090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e921c673a52b34894a3043f5064a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 832224092}
+  player: {fileID: 1008912600}
 --- !u!1 &864273846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,6 +1522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 880372192}
+  - component: {fileID: 880372196}
   - component: {fileID: 880372195}
   - component: {fileID: 880372194}
   - component: {fileID: 880372193}
@@ -1551,7 +1597,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 880372194}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &880372194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1590,6 +1648,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880372191}
   m_CullTransparentMesh: 1
+--- !u!114 &880372196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880372191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3509939e84f33634f8bd89a940f1d009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 880372193}
+  player: {fileID: 1008912600}
 --- !u!1 &893021021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,6 +1745,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnTileAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnChi:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPon:
+    m_PersistentCalls:
+      m_Calls: []
+  OnKan:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallChi:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallPon:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallKan:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &893097004
@@ -1938,6 +2028,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnTileAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnChi:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPon:
+    m_PersistentCalls:
+      m_Calls: []
+  OnKan:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallChi:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallPon:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallKan:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1008912601
@@ -2359,6 +2467,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1142884004}
+  - component: {fileID: 1142884008}
   - component: {fileID: 1142884007}
   - component: {fileID: 1142884006}
   - component: {fileID: 1142884005}
@@ -2433,7 +2542,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1142884006}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1142884006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2472,6 +2593,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142884003}
   m_CullTransparentMesh: 1
+--- !u!114 &1142884008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142884003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4542b6fa5ee571448b46e166b0a078f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1142884005}
+  player: {fileID: 1008912600}
 --- !u!1 &1148400480
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,6 +3589,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnTileAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnChi:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPon:
+    m_PersistentCalls:
+      m_Calls: []
+  OnKan:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallChi:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallPon:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCallKan:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1817191514
