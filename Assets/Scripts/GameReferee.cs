@@ -12,6 +12,7 @@ public class GameReferee : MonoBehaviour
     Timer timer;
     public CallChecker CallChecker = new CallChecker();
     float CallWaitTimeMax = 2;
+    List<(TileSet, Player)> ts = new List<(TileSet, Player)>();
     public void StartGame()
     {
         timer = new Timer(CallWaitTimeMax * 1000);
@@ -22,10 +23,17 @@ public class GameReferee : MonoBehaviour
         for(int i = 0; i < 4; i++)
         {
             table.Players[i].OnDiscard.AddListener(SwitchToNextPlayer);
+            table.Players[i].OnCallChi.AddListener(detectCall);
+            table.Players[i].OnCallPon.AddListener(detectCall);
+            table.Players[i].OnCallKan.AddListener(detectCall);
         }
         CurrentPlayer.AddTileToHand(DrawTileFromWall(table.Wall));
     }
 
+    private void detectCall(TileSet tileset, Player player)
+    {
+        ts.Add((tileset, player));
+    }
     void SwitchToNextPlayer(MahjongTile LastDiscardedTile)
     {
         int nextIndex = table.Players.IndexOf(CurrentPlayer) + 1;
@@ -78,11 +86,7 @@ public class GameReferee : MonoBehaviour
 
     private void HandleCalls(object sender, ElapsedEventArgs e)
     {
-        Debug.Log("DUPAA");
-        if(e != null)
-        {
-
-        }
+        Debug.Log("DUPA");
 
     }
 

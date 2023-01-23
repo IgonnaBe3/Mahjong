@@ -1196,13 +1196,13 @@ MonoBehaviour:
   OnTileAdded:
     m_PersistentCalls:
       m_Calls: []
-  OnChi:
+  OnCanChi:
     m_PersistentCalls:
       m_Calls: []
-  OnPon:
+  OnCanPon:
     m_PersistentCalls:
       m_Calls: []
-  OnKan:
+  OnCanKan:
     m_PersistentCalls:
       m_Calls: []
   OnCallChi:
@@ -1378,6 +1378,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 832224092}
   player: {fileID: 1008912600}
+  LastDiscardedTile: {fileID: 0}
+  ChiPrefab: {fileID: 5530349054714129168, guid: c09ce0fbeb32269438a00582b4cade8a, type: 3}
+  grid: {fileID: 889313041}
 --- !u!1 &864273846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,6 +1665,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 880372193}
   player: {fileID: 1008912600}
+--- !u!1 &889313039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 889313040}
+  - component: {fileID: 889313041}
+  m_Layer: 5
+  m_Name: CallOptionsButtonPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &889313040
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889313039}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1088734314}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -110}
+  m_SizeDelta: {x: 300, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &889313041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889313039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 36, y: 26}
+  m_Spacing: {x: 0, y: 0}
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!1 &893021021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,13 +1811,13 @@ MonoBehaviour:
   OnTileAdded:
     m_PersistentCalls:
       m_Calls: []
-  OnChi:
+  OnCanChi:
     m_PersistentCalls:
       m_Calls: []
-  OnPon:
+  OnCanPon:
     m_PersistentCalls:
       m_Calls: []
-  OnKan:
+  OnCanKan:
     m_PersistentCalls:
       m_Calls: []
   OnCallChi:
@@ -2030,13 +2094,13 @@ MonoBehaviour:
   OnTileAdded:
     m_PersistentCalls:
       m_Calls: []
-  OnChi:
+  OnCanChi:
     m_PersistentCalls:
       m_Calls: []
-  OnPon:
+  OnCanPon:
     m_PersistentCalls:
       m_Calls: []
-  OnKan:
+  OnCanKan:
     m_PersistentCalls:
       m_Calls: []
   OnCallChi:
@@ -2414,7 +2478,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 519420031}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2422,7 +2486,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1088734314
 RectTransform:
@@ -2450,6 +2514,7 @@ RectTransform:
   - {fileID: 1396287082}
   - {fileID: 1479607787}
   - {fileID: 435856532}
+  - {fileID: 889313040}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3591,13 +3656,13 @@ MonoBehaviour:
   OnTileAdded:
     m_PersistentCalls:
       m_Calls: []
-  OnChi:
+  OnCanChi:
     m_PersistentCalls:
       m_Calls: []
-  OnPon:
+  OnCanPon:
     m_PersistentCalls:
       m_Calls: []
-  OnKan:
+  OnCanKan:
     m_PersistentCalls:
       m_Calls: []
   OnCallChi:

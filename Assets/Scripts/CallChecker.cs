@@ -83,7 +83,41 @@ public class CallChecker
         }
         return possibleChi;
     }
-    public bool CanPon(TileSet tileset, MahjongTile SearchedTile)
+
+    public List<TileSet> GetPossiblePon(TileSet tileset, MahjongTile SearchedTile)
+    {
+        List<TileSet> possiblePon = new List<TileSet>();
+        bool isPonPossible = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value && tile.Type == SearchedTile.Type).Count() >= 2;
+        bool isRedDoraPresent = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value && tile.Type == SearchedTile.Type && tile.IsRedDora==true).Count() > 0;
+        bool is3TilesPresent = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value && tile.Type == SearchedTile.Type).Count() > 2;
+        if(isPonPossible && !(is3TilesPresent))
+        {
+            TileSet firstPon = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value && tile.Type == SearchedTile.Type).Take(2).ToList();
+            possiblePon.Add(firstPon);
+        }
+        else if(isPonPossible && isRedDoraPresent && is3TilesPresent)
+        {
+            TileSet secondPon = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value && tile.Type == SearchedTile.Type).Take(1).ToList();
+            MahjongTile redDora = (MahjongTile)tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value && tile.Type == SearchedTile.Type && tile.IsRedDora == true).First();
+            secondPon.Add(redDora);
+            possiblePon.Add(secondPon);
+        }
+
+        return possiblePon;
+    }
+
+    public List<TileSet> GetPossibleKan(TileSet tileset, MahjongTile SearchedTile)
+    {
+        List<TileSet> possibleKan = new List<TileSet>();
+        bool isKanPossible = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value && tile.Type == SearchedTile.Type).Count()>=3;
+        if (isKanPossible)
+        {
+            TileSet KanTiles = tileset.Tiles.Where(tile => tile.Value == SearchedTile.Value && tile.Type == SearchedTile.Type).ToList();
+            possibleKan.Add(KanTiles);
+        }
+        return possibleKan;
+    }
+        public bool CanPon(TileSet tileset, MahjongTile SearchedTile)
     {
         return tileset.Tiles.Where(tile=> tile.Value==SearchedTile.Value && tile.Type == SearchedTile.Type).Count() >= 2;
     }

@@ -7,20 +7,25 @@ public class CallButtonKan : MonoBehaviour
 {
     public Button button;
     public Player player;
+    public CallChecker checker = new CallChecker();
+    public MahjongTile LastDiscardedTile;
     // Start is called before the first frame update
     void Start()
     {
         button.interactable = false;
-        player.OnKan.AddListener(ActivateButton);
+        player.OnCanKan.AddListener(ActivateButton);
         button.onClick.AddListener(TaskOnClick);
     }
 
     public void TaskOnClick()
     {
+
         button.interactable = false;
+        List<TileSet> possiblleKan = checker.GetPossibleKan(player.Hand, LastDiscardedTile);
+        player.CallKan(possiblleKan[0]);
     }
 
-    public void ActivateButton()
+    public void ActivateButton(MahjongTile LastDiscardedTile)
     {
         button.interactable = true;
     }

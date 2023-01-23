@@ -17,12 +17,12 @@ public class Player : MonoBehaviour
     public CallChecker CallChecker = new CallChecker();
     public MahjongTileEvent OnDiscard = new MahjongTileEvent();
     public MahjongTileEvent OnTileAdded = new MahjongTileEvent();
-    public UnityEvent OnChi = new UnityEvent();
-    public UnityEvent OnPon = new UnityEvent();
-    public UnityEvent OnKan = new UnityEvent();
-    public UnityEvent OnCallChi = new UnityEvent();
-    public UnityEvent OnCallPon = new UnityEvent();
-    public UnityEvent OnCallKan = new UnityEvent();
+    public MahjongTileEvent OnCanChi = new MahjongTileEvent();
+    public MahjongTileEvent OnCanPon = new MahjongTileEvent();
+    public MahjongTileEvent OnCanKan = new MahjongTileEvent();
+    public TileSetAndPlayerEvent OnCallChi = new TileSetAndPlayerEvent();
+    public TileSetAndPlayerEvent OnCallPon = new TileSetAndPlayerEvent();
+    public TileSetAndPlayerEvent OnCallKan = new TileSetAndPlayerEvent();
     public void Initialize()
     {
 
@@ -33,32 +33,32 @@ public class Player : MonoBehaviour
         if (CallChecker.CanChi(Hand, LastDiscardedTile))
         {
             Debug.Log($"I can chi on {LastDiscardedTile.Value} of {LastDiscardedTile.Type}");
-            OnChi.Invoke();
+            OnCanChi.Invoke(LastDiscardedTile);
         }
         else if(CallChecker.CanPon(Hand, LastDiscardedTile))
         {
             Debug.Log($"I can pon on {LastDiscardedTile.Value} of {LastDiscardedTile.Type}");
-            OnPon.Invoke();
+            OnCanPon.Invoke(LastDiscardedTile);
         }
         else if (CallChecker.CanKan(Hand, LastDiscardedTile))
         {
             Debug.Log($"I can kan on {LastDiscardedTile.Value} of {LastDiscardedTile.Type}");
-            OnKan.Invoke();
+            OnCanKan.Invoke(LastDiscardedTile);
         }
     }
 
-    public void CallChi()
+    public void CallChi(TileSet tileset)
     {
-        OnCallChi.Invoke();
+        OnCallChi.Invoke(tileset, this);
     }
 
-    public void CallPon()
+    public void CallPon(TileSet tileset)
     {
-        OnCallPon.Invoke();
+        OnCallPon.Invoke(tileset, this);
     }
-    public void CallKan()
+    public void CallKan(TileSet tileset)
     {
-        OnCallKan.Invoke();
+        OnCallKan.Invoke(tileset, this);
     }
 
     // Start is called before the first frame update
